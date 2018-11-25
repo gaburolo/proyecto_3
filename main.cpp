@@ -7,6 +7,7 @@
 #include "Inicio.h"
 
 
+
 int main() {
     std::string ip;
     std::cout << "Ingrese la IP del servidor: ";
