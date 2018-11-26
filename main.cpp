@@ -1,23 +1,20 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Network.hpp>
+//
+// Created by oldboy on 25/11/18.
+//
 #include <iostream>
+#include <SFML/Graphics.hpp>
+#include "ControlVideo.h"
+#include "Inicio.h"
 
-using namespace std;
 
-const sf::IpAddress IP = "10.0.2.15";
-const int PORT = 2000;
+int main() {
+    std::string ip;
+    std::cout << "Ingrese la IP del servidor: ";
+    std::cin >> ip;
 
-int main(int argc, char const *argv[])
-{
-    string id;
-    cout << "Nombre de Usuario: " << endl;
-    cin >> id;
+    Singleton::connectToServer(ip, 2001);
 
-    sf::TcpSocket socket;
-    socket.connect(IP,PORT);
+    Menu::run();
 
-    sf::Packet packet;
-    packet << id;
-    socket.send(packet);
     return 0;
 }
